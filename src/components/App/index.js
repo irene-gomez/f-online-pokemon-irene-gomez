@@ -3,6 +3,7 @@ import fetchPokemon from '../../services/fetchApiPokemon';
 import PokemonList from '../PokemonList';
 import FilterInput from '../FilterInput';
 import './styles.css';
+import Loading from '../Loading';
 
 class App extends React.Component {
     constructor(props) {
@@ -60,7 +61,7 @@ class App extends React.Component {
                     />
                 </form>
                 {isLoading ? (
-                    <p>Loading...</p>
+                    <Loading />
                 ) : (
                     <section>
                         <PokemonList

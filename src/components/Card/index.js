@@ -14,7 +14,7 @@ const Card = props => {
                 <p className="card__name">{pokemon.name}</p>
                 <ul className="card__types">
                     {pokemon.types.map((type, index) => (
-                        <li key={index}  className="type-pokemon">{type.type.name}</li>
+                        <li key={index}  className={`type-pokemon ${type.type.name}`}>{type.type.name}</li>
                         ))}
                 </ul>
             </div>
