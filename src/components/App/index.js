@@ -66,7 +66,7 @@ class App extends React.Component {
                     <section>
                         <PokemonList
                             pokemonsArr={pokemonsArr
-                                .filter(pokemons =>
+                                .filter(pokemons => 
                                     pokemons.name
                                         .toLowerCase()
                                         .includes(

@@ -2,6 +2,7 @@
     width: 150px;
     margin: 15px;
     text-transform: capitalize;
+    box-shadow: 5px 5px 13px rgba(0, 0, 0, .3);
 }
 
 @media all and (min-width: 768px) {
@@ -59,6 +60,7 @@
     padding: 6px;
     text-transform: uppercase;
     flex: 1 1 auto;
+    font-weight: 500;
 }
 
 .bug {
