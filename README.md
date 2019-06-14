@@ -2,7 +2,7 @@
 - [ ] Crear estructura de componentes principales:
   * [X] App
   * [X] Card
-  * [ ] CardsList
+  * [X] CardsList
 - [X] Llamada API (25 resultados)
 - [X] Pintar datos principales
   * [X] Foto
@@ -10,6 +10,7 @@
   * [X] Número ID
   * [X] Tipo(s)
 - [ ] Filtrar por nombre (mínimo de 3 caracteres introducidos)
+- [ ] Añadir PropTypes
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

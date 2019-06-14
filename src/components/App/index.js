@@ -1,5 +1,7 @@
 import React from 'react';
 import fetchPokemon from '../../services/fetchApiPokemon';
+import PokemonList from '../PokemonList';
+import FilterInput from '../FilterInput';
 import './styles.css';
 
 class App extends React.Component {
@@ -49,29 +51,13 @@ class App extends React.Component {
         return (
             <div className="App">
                 <form>
-                    <input
-                        type="text"
-                        name="searchPokemon"
-                        id="searchPokemon"
-                        value={filterSearch}
-                        onChange={this.handleInputChange}
+                    <FilterInput 
+                        filterSearch={filterSearch}
+                        handleInputChange={this.handleInputChange}
                     />
                 </form>
                 <section>
-                    <ul>
-                        {pokemonsArr.map(pokemon => {
-                            return (
-                                <li key={`${pokemon.id}`}>
-                                    <img src={pokemon.sprites.front_default} alt={pokemon.name}/>
-                                    <p>{pokemon.id}</p>
-                                    <p>{pokemon.name}</p>
-                                    <ul>
-                                        {pokemon.types.map(type => <li>{type.type.name}</li>)}
-                                    </ul>
-                                </li>
-                            )
-                        })}
-                    </ul>
+                    <PokemonList pokemonsArr={pokemonsArr}/>
                 </section>
             </div>
         );
