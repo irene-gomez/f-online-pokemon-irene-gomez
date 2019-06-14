@@ -1,3 +1,16 @@
+# TO DO
+- [ ] Crear estructura de componentes principales:
+  * App
+  * Card
+  * CardsList
+- [X] Llamada API (25 resultados)
+- [ ] Pintar datos principales
+  * Foto
+  * Nombre
+  * Número ID
+  * Tipo(s)
+- [ ] Filtrar por nombre (mínimo de 3 caracteres introducidos)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
