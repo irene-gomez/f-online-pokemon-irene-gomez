@@ -1,0 +1,12 @@
+#searchPokemon {
+    width: 400px;
+    padding: 8px;
+    margin: 40px 20px 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+#searchPokemon::placeholder {
+    text-align: center;
+    color: #bbb;
+}

@@ -1,0 +1,60 @@
+.card {
+    width: 150px;
+    margin: 15px;
+    text-transform: capitalize;
+}
+
+@media all and (min-width: 768px) {
+    .card {
+        width: 200px;
+    }
+}
+
+.wrapper__image {
+    height: 120px;
+    background-color: rgb(236, 236, 236);
+    text-align: center;
+    position: relative;
+}
+
+.wrapper__name {
+    background-color: #fff;
+    padding: 10px;
+}
+
+.card__image {
+    object-fit: contain;
+}
+
+.card__id {
+    text-align: left;
+    background-color: #b3a125;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 12px;
+    padding: 4px 8px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.card__name {
+    font-weight: 600;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card__types {
+    display: flex;
+    flex-flow: row wrap;
+    font-size: 14px;
+}
+
+.type-pokemon {
+    border: 1px solid #3b4cca;
+    color: #3b4cca;
+    padding: 6px;
+    margin: 0 6px 6px 0;
+    border-radius: 6px;
+}
