@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Card = props => {
     const { pokemon } = props;
@@ -14,6 +15,10 @@ const Card = props => {
             </ul>
         </div>
     );
+};
+
+Card.propTypes = {
+    pokemon: PropTypes.object.isRequired
 };
 
 export default Card;

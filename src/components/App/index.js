@@ -28,11 +28,14 @@ class App extends React.Component {
                 fetch(pokemon.url)
                     .then(response => response.json())
                     .then(infoPokemon => {
-                        this.setState({
-                            pokemonsArr: [
-                                ...this.state.pokemonsArr,
-                                infoPokemon
-                            ]
+                        this.setState(prevState => {
+                            return {
+                                pokemonsArr: [
+                                    ...prevState.pokemonsArr,
+                                    infoPokemon
+                                ],
+                                isLoading: false
+                            }
                         });
                     });
             }
@@ -47,7 +50,7 @@ class App extends React.Component {
     }
 
     render() {
-        const { filterSearch, pokemonsArr } = this.state;
+        const { filterSearch, pokemonsArr, isLoading } = this.state;
         return (
             <div className="App">
                 <form>
@@ -56,17 +59,23 @@ class App extends React.Component {
                         handleInputChange={this.handleInputChange}
                     />
                 </form>
-                <section>
-                    <PokemonList
-                        pokemonsArr={pokemonsArr.filter(pokemons =>
-                            pokemons.name
-                                .toLowerCase()
-                                .includes(
-                                    filterSearch.length >= 3 ? filterSearch : ''
-                                )
-                        )}
-                    />
-                </section>
+                {isLoading ? (
+                    <p>Loading...</p>
+                ) : (
+                    <section>
+                        <PokemonList
+                            pokemonsArr={pokemonsArr.filter(pokemons =>
+                                pokemons.name
+                                    .toLowerCase()
+                                    .includes(
+                                        filterSearch.length >= 3
+                                            ? filterSearch
+                                            : ''
+                                    )
+                            )}
+                        />
+                    </section>
+                )}
             </div>
         );
     }

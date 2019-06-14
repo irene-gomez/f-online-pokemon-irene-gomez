@@ -1,5 +1,5 @@
 # TO DO
-- [ ] Crear estructura de componentes principales:
+- [X] Crear estructura de componentes principales:
   * [X] App
   * [X] Card
   * [X] CardsList
@@ -9,8 +9,9 @@
   * [X] Nombre
   * [X] Número ID
   * [X] Tipo(s)
-- [ ] Filtrar por nombre (mínimo de 3 caracteres introducidos)
-- [ ] Añadir PropTypes
+- [X] Filtrar por nombre (mínimo de 3 caracteres introducidos)
+- [X] Añadir PropTypes
+- [ ] Dar estilos
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
