@@ -42,7 +42,7 @@ class App extends React.Component {
     handleInputChange(e) {
         const { value } = e.currentTarget;
         this.setState({
-            filterSearch: value
+            filterSearch: value.toLowerCase()
         });
     }
 
@@ -51,13 +51,21 @@ class App extends React.Component {
         return (
             <div className="App">
                 <form>
-                    <FilterInput 
+                    <FilterInput
                         filterSearch={filterSearch}
                         handleInputChange={this.handleInputChange}
                     />
                 </form>
                 <section>
-                    <PokemonList pokemonsArr={pokemonsArr}/>
+                    <PokemonList
+                        pokemonsArr={pokemonsArr.filter(pokemons =>
+                            pokemons.name
+                                .toLowerCase()
+                                .includes(
+                                    filterSearch.length >= 3 ? filterSearch : ''
+                                )
+                        )}
+                    />
                 </section>
             </div>
         );
