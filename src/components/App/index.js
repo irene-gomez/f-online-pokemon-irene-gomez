@@ -2,8 +2,9 @@ import React from 'react';
 import fetchPokemon from '../../services/fetchApiPokemon';
 import PokemonList from '../PokemonList';
 import FilterInput from '../FilterInput';
-import './styles.css';
 import Loading from '../Loading';
+import NotFound from '../NotFound';
+import './styles.css';
 
 class App extends React.Component {
     constructor(props) {
@@ -50,8 +51,27 @@ class App extends React.Component {
         });
     }
 
-    render() {
+    paintPokemon() {
         const { filterSearch, pokemonsArr, isLoading } = this.state;
+        const searchPokemon = pokemonsArr
+            .filter(pokemons =>
+                pokemons.name
+                    .toLowerCase()
+                    .includes(filterSearch.length >= 3 ? filterSearch : '')
+            )
+            .sort((a, b) => a.id - b.id);
+        
+        if (isLoading) {
+            return <Loading />;
+        } else if (searchPokemon.length === 0) {
+            return <NotFound />
+        } else {
+            return <PokemonList pokemonsArr={searchPokemon} />
+        }
+    }
+
+    render() {
+        const { filterSearch } = this.state;
         return (
             <div className="App">
                 <form>
@@ -60,25 +80,9 @@ class App extends React.Component {
                         handleInputChange={this.handleInputChange}
                     />
                 </form>
-                {isLoading ? (
-                    <Loading />
-                ) : (
-                    <section>
-                        <PokemonList
-                            pokemonsArr={pokemonsArr
-                                .filter(pokemons => 
-                                    pokemons.name
-                                        .toLowerCase()
-                                        .includes(
-                                            filterSearch.length >= 3
-                                                ? filterSearch
-                                                : ''
-                                        )
-                                )
-                                .sort((a, b) => a.id - b.id)}
-                        />
-                    </section>
-                )}
+                <section className="main-container">
+                    {this.paintPokemon()}
+                </section>
             </div>
         );
     }
