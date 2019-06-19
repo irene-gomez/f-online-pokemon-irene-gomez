@@ -1,21 +1,25 @@
+@import '../../scss/variables';
+
 .card {
     width: 150px;
     margin: 15px;
-    text-transform: capitalize;
     box-shadow: 5px 5px 13px rgba(0, 0, 0, .3);
+    &::first-letter {
+        text-transform: capitalize;
+    }
     &__image {
         object-fit: contain;
     }
     &__id {
         text-align: left;
-        background-color: #b3a125;
+        background-color: $yellowGold;
         display: inline-block;
         position: absolute;
         bottom: 0;
         left: 0;
         font-size: 12px;
         padding: 4px 8px;
-        color: #fff;
+        color: $snowWhite;
         font-weight: 600;
     }
     &__name {
@@ -24,6 +28,7 @@
         margin-bottom: 15px;
         padding-top: 15px;
         text-align: center;
+        text-transform: capitalize;
     }
     
     &__types {
@@ -33,7 +38,13 @@
         text-align: center;
     }
     &__evolution {
-        
+        color: $brownTree;
+        border-left: 2px solid $brownTree;
+        margin: 0 20px 10px;
+        padding-left: 5px;
+        &--name {
+            text-transform: capitalize;
+        }
     }
 }
 
@@ -51,7 +62,7 @@
         position: relative;
     }
     &__name {
-        background-color: #fff;
+        background-color: $snowWhite;
     }
 }
 
@@ -64,57 +75,57 @@
 }
 
 .bug {
-    background-color: #4b9a51;
-    color: #fff;
+    background-color: $greenBug;
+    color: $snowWhite;
 }
 .dark {
-    background-color: #2e2d41;
-    color: #fff;
+    background-color: $blueMidnight;
+    color: $snowWhite;
 }
 .dragon {
-    background-color: #60cad9;
+    background-color: $blueDragon;
 }
 .electric {
-    background-color: #f9f373;
+    background-color: $electricYellow;
 }
 .fairy {
-    background-color: #eb4d68;
+    background-color: $pinkFairy;
 }
 .fighting {
-    background-color: #ed6038;
+    background-color: $pinkSalmon;
 }
 .fire {
-    background-color: #ec4a56;
+    background-color: $pinkParty;
 }
 .flying {
-    background-color: #92b2c7;
+    background-color: $blueButterfly;
 }
 .ghost {
-    background-color: #906790;
+    background-color: $purpleGhost;
 }
 .grass {
-    background-color: #67cd52;
+    background-color: $greenGrass;
 }
 .ground {
-    background-color: #6d491f;
-    color: #fff;
+    background-color: $brownTree;
+    color: $snowWhite;
 }
 .ice {
-    background-color: #d8f0fa;
+    background-color: $babyBlue;
 }
 .normal {
-    background-color: #CA98A7;
+    background-color: $neutralPink;
 }
 .poison {
-    background-color: #9a69d9;
-    color: #fff;
+    background-color: $purpleCandy;
+    color: $snowWhite;
 }
 .psychic {
-    background-color: #EB548F;
+    background-color: $hotPink;
 }
 .rock {
-    background-color: #8B3E21;
-    color: #fff;
+    background-color: $brownGingerbread;
+    color: $snowWhite;
 }
 .steel {
     background-color: #5ABE94;
