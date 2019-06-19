@@ -4,7 +4,7 @@ import PokemonList from '../PokemonList';
 import FilterInput from '../FilterInput';
 import Loading from '../Loading';
 import NotFound from '../NotFound';
-import './styles.css';
+import './styles.scss';
 
 class App extends React.Component {
     constructor(props) {

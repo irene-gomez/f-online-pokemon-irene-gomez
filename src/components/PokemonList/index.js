@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../Card';
 import PropTypes from 'prop-types';
-import './styles.css';
+import './styles.scss';
 
 const PokemonList = props => {
     const { pokemonsArr } = props;

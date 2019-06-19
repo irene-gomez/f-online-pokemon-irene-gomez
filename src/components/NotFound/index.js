@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import './styles.css';
+import './styles.scss';
 
 const NotFound = () => {
     return (
