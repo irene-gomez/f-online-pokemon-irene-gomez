@@ -12,7 +12,7 @@ class App extends React.Component {
 
         this.state = {
             pokemonsArr: [],
-            isLoading: true,
+            isLoading: false,
             filterSearch: ''
         };
 
@@ -27,18 +27,29 @@ class App extends React.Component {
         fetchPokemon().then(data => {
             const pokemonsList = data.results;
             for (const pokemon of pokemonsList) {
+                let pokemonData = {};
                 fetch(pokemon.url)
                     .then(response => response.json())
                     .then(infoPokemon => {
-                        this.setState(prevState => {
-                            return {
-                                pokemonsArr: [
-                                    ...prevState.pokemonsArr,
-                                    infoPokemon
-                                ],
-                                isLoading: false
-                            };
-                        });
+                        pokemonData = infoPokemon;
+                        fetch(pokemonData.species.url)
+                            .then(response => response.json())
+                            .then(dataEvolution => {
+                                pokemonData.evolution_from =
+                                    dataEvolution.evolves_from_species !== null
+                                        ? dataEvolution.evolves_from_species
+                                              .name
+                                        : null;
+                                    this.setState(prevState => {
+                                        return {
+                                            pokemonsArr: [
+                                                ...prevState.pokemonsArr,
+                                                pokemonData
+                                            ],
+                                            isLoading: false
+                                        };
+                                    });
+                            });
                     });
             }
         });
@@ -60,13 +71,13 @@ class App extends React.Component {
                     .includes(filterSearch.length >= 3 ? filterSearch : '')
             )
             .sort((a, b) => a.id - b.id);
-        
+
         if (isLoading) {
             return <Loading />;
         } else if (searchPokemon.length === 0) {
-            return <NotFound />
+            return <NotFound />;
         } else {
-            return <PokemonList pokemonsArr={searchPokemon} />
+            return <PokemonList pokemonsArr={searchPokemon} />;
         }
     }
 
@@ -78,7 +89,9 @@ class App extends React.Component {
                     <FilterInput
                         filterSearch={filterSearch}
                         handleInputChange={this.handleInputChange}
-                    />
+                    >
+                        Filtra pokemon por nombre
+                    </FilterInput>
                 </form>
                 <section className="main-container">
                     {this.paintPokemon()}
