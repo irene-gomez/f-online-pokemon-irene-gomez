@@ -7,15 +7,34 @@ const Card = props => {
     return (
         <div className="card">
             <div className="wrapper__image">
-                <img className="card__image" src={pokemon.sprites.front_default} alt={pokemon.name} />
+                <img
+                    className="card__image"
+                    src={pokemon.sprites.front_default}
+                    alt={pokemon.name}
+                />
                 <p className="card__id">ID/{pokemon.id}</p>
             </div>
             <div className="wrapper__name">
                 <p className="card__name">{pokemon.name}</p>
+                {pokemon.evolution_from !== null ? (
+                    <p className="card__evolution">
+                        Evoluciona de:{' '}
+                        <span className="card__evolution--name">
+                            {pokemon.evolution_from}
+                        </span>
+                    </p>
+                ) : (
+                    <p></p>
+                )}
                 <ul className="card__types">
                     {pokemon.types.map((type, index) => (
-                        <li key={index}  className={`type-pokemon ${type.type.name}`}>{type.type.name}</li>
-                        ))}
+                        <li
+                            key={index}
+                            className={`type-pokemon ${type.type.name}`}
+                        >
+                            {type.type.name}
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>
