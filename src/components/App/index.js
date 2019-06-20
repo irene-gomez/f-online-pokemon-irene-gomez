@@ -12,7 +12,7 @@ class App extends React.Component {
 
         this.state = {
             pokemonsArr: [],
-            isLoading: false,
+            isLoading: true,
             filterSearch: ''
         };
 
