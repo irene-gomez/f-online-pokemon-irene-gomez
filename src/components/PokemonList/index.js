@@ -1,6 +1,7 @@
 import React from 'react';
-import Card from '../Card';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Card from '../Card';
 import './styles.scss';
 
 const PokemonList = props => {
@@ -10,7 +11,9 @@ const PokemonList = props => {
             {pokemonsArr.map(pokemon => {
                 return (
                     <li key={`${pokemon.id}`}>
-                        <Card pokemon={pokemon} />
+                        <Link to={`/pokemon-detail/${pokemon.id}`}>
+                            <Card pokemon={pokemon} />
+                        </Link>
                     </li>
                 );
             })}

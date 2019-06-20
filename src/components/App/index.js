@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import fetchPokemon from '../../services/fetchApiPokemon';
 import Home from '../Home';
+import DetailPokemon from '../DetailPokemon';
 
 import './styles.scss';
 
@@ -38,15 +39,15 @@ class App extends React.Component {
                                     dataEvolution.evolves_from_species !== null
                                         ? dataEvolution.evolves_from_species.name
                                         : null;
-                                    this.setState(prevState => {
-                                        return {
-                                            pokemonsArr: [
-                                                ...prevState.pokemonsArr,
-                                                pokemonData
-                                            ],
-                                            isLoading: false
-                                        };
-                                    });
+                                this.setState(prevState => {
+                                    return {
+                                        pokemonsArr: [
+                                            ...prevState.pokemonsArr,
+                                            pokemonData
+                                        ],
+                                        isLoading: false
+                                    };
+                                });
                             });
                     });
             }
@@ -60,19 +61,42 @@ class App extends React.Component {
         });
     }
 
+    getCharacter(id) {
+        const { pokemonsArr } = this.state;
+        return pokemonsArr.find(pokemon => pokemon.id === parseInt(id));
+    }
+    getPrevCharacter(id) {
+        const { pokemonsArr } = this.state;
+        return pokemonsArr.find(pokemon => pokemon.id === parseInt(id) - 1);
+    }
+
     render() {
         const { filterSearch, isLoading, pokemonsArr } = this.state;
         return (
             <div className="App">
                 <Switch>
-                    <Route exact path="/" render={() => (
-                        <Home 
-                            filterSearch={filterSearch} 
-                            handleInputChange={this.handleInputChange}
-                            isLoading={isLoading}
-                            pokemonsArr={pokemonsArr}
-                        />
-                    )}/>
+                    <Route
+                        exact
+                        path="/"
+                        render={() => (
+                            <Home
+                                filterSearch={filterSearch}
+                                handleInputChange={this.handleInputChange}
+                                isLoading={isLoading}
+                                pokemonsArr={pokemonsArr}
+                            />
+                        )}
+                    />
+                    <Route 
+                        path="/pokemon-detail/:id" 
+                        render={routerProps => (
+                            <DetailPokemon 
+                                characterPokemon={this.getCharacter(routerProps.match.params.id)}
+                                prevPokemon={this.getPrevCharacter(routerProps.match.params.id)}
+                                isLoading={isLoading}
+                            />
+                        )}
+                    />
                 </Switch>
             </div>
         );
