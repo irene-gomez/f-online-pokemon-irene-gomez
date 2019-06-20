@@ -1,9 +1,8 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import fetchPokemon from '../../services/fetchApiPokemon';
-import PokemonList from '../PokemonList';
-import FilterInput from '../FilterInput';
-import Loading from '../Loading';
-import NotFound from '../NotFound';
+import Home from '../Home';
+
 import './styles.scss';
 
 class App extends React.Component {
@@ -37,8 +36,7 @@ class App extends React.Component {
                             .then(dataEvolution => {
                                 pokemonData.evolution_from =
                                     dataEvolution.evolves_from_species !== null
-                                        ? dataEvolution.evolves_from_species
-                                              .name
+                                        ? dataEvolution.evolves_from_species.name
                                         : null;
                                     this.setState(prevState => {
                                         return {
@@ -62,40 +60,20 @@ class App extends React.Component {
         });
     }
 
-    paintPokemon() {
-        const { filterSearch, pokemonsArr, isLoading } = this.state;
-        const searchPokemon = pokemonsArr
-            .filter(pokemons =>
-                pokemons.name
-                    .toLowerCase()
-                    .includes(filterSearch.length >= 3 ? filterSearch : '')
-            )
-            .sort((a, b) => a.id - b.id);
-
-        if (isLoading) {
-            return <Loading />;
-        } else if (searchPokemon.length === 0) {
-            return <NotFound />;
-        } else {
-            return <PokemonList pokemonsArr={searchPokemon} />;
-        }
-    }
-
     render() {
-        const { filterSearch } = this.state;
+        const { filterSearch, isLoading, pokemonsArr } = this.state;
         return (
             <div className="App">
-                <form>
-                    <FilterInput
-                        filterSearch={filterSearch}
-                        handleInputChange={this.handleInputChange}
-                    >
-                        Filtra pokemon por nombre
-                    </FilterInput>
-                </form>
-                <section className="main-container">
-                    {this.paintPokemon()}
-                </section>
+                <Switch>
+                    <Route exact path="/" render={() => (
+                        <Home 
+                            filterSearch={filterSearch} 
+                            handleInputChange={this.handleInputChange}
+                            isLoading={isLoading}
+                            pokemonsArr={pokemonsArr}
+                        />
+                    )}/>
+                </Switch>
             </div>
         );
     }
