@@ -25,7 +25,7 @@ const Card = props => {
                         </span>
                     </p>
                 ) : (
-                    <p></p>
+                    <p className="card__evolution">First pokemon in the line</p>
                 )}
                 <ul className="card__types">
                     {pokemon.types.map((type, index) => (

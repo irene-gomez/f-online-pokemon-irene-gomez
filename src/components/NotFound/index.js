@@ -5,7 +5,7 @@ const NotFound = () => {
     return (
         <Fragment>
             <div className="not-found__image"></div>
-            <p className="not-found__info">No se ha encontrado ninguna coincidencia</p>
+            <p className="not-found__info">No match found</p>
         </Fragment>
     );
 }
