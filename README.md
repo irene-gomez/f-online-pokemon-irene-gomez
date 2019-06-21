@@ -7,7 +7,7 @@ This project is done with the Pokemon API of [PokéAPI](https://pokeapi.co/).
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## License
-This project is under the [MIT License](LICENSE.md).
+This project is under the MIT License.
 
 ## Author
 [Irene Gómez](https://github.com/irene-gomez)
