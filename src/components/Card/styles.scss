@@ -48,7 +48,7 @@
     }
 }
 
-@media all and (min-width: 768px) {
+@media all and (min-width: $tablet) {
     .card {
         width: 200px;
     }

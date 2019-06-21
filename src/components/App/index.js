@@ -65,10 +65,6 @@ class App extends React.Component {
         const { pokemonsArr } = this.state;
         return pokemonsArr.find(pokemon => pokemon.id === parseInt(id));
     }
-    getPrevCharacter(id) {
-        const { pokemonsArr } = this.state;
-        return pokemonsArr.find(pokemon => pokemon.id === parseInt(id) - 1);
-    }
 
     render() {
         const { filterSearch, isLoading, pokemonsArr } = this.state;
@@ -92,7 +88,6 @@ class App extends React.Component {
                         render={routerProps => (
                             <DetailPokemon 
                                 characterPokemon={this.getCharacter(routerProps.match.params.id)}
-                                prevPokemon={this.getPrevCharacter(routerProps.match.params.id)}
                                 isLoading={isLoading}
                             />
                         )}

@@ -1,0 +1,209 @@
+@import '../../scss/variables';
+
+.wrapper{
+    &__images {
+        width: 100%;
+        position: absolute;
+        top: 25px;
+        left: 0;
+        display: flex;
+        justify-content: space-around;
+    }
+    &__info {
+        padding-top: 110px;
+        padding-bottom: 130px;
+        @media all and (min-width: $tablet) {
+            padding-bottom: 100px;
+        }
+    }
+}
+
+@keyframes introDetailCard {
+    0% {
+        top: -75%;
+        transform: translateX(-50%) scale(1);
+
+    }
+    50% {
+        transform: translateX(-50%) scale(.7);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+.detail {
+    width: 300px;
+    padding: 25px;
+    position: absolute;
+    box-shadow: 6px 11px 21px 0px rgba($blackRock, .5);
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: introDetailCard .7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    @media all and (min-width: $tablet) {
+        width: 400px;
+    }
+    &__name {
+        text-transform: capitalize;
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: .3em;
+    }
+    &__text {
+        font-size: 20px;
+        line-height: 1.4;
+        margin-bottom: .2em;
+        &--highlight {
+            font-weight: 600;
+        }
+        &--capitalize {
+            text-transform: capitalize;
+        }
+    }
+    &__evolution {
+        background-color: $snowWhite;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        margin-bottom: 30px;
+        width: 65%;
+        text-align: center;
+        font-weight: 600;
+        border: 2px solid black; 
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -17px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 17.3px 10px 0;
+            border-color: transparent black transparent transparent;
+        }
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            right: -17px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 0 10px 17.3px;
+            border-color: transparent transparent transparent black;
+        }
+    }
+    &__abilities-list{
+        list-style: square;
+        margin-left: 30px;
+    }
+}
+.abilities-list__ability {
+    text-transform: capitalize;
+}
+
+.link {
+    &__back {
+        display: inline-block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px;
+        border-radius: 50%;
+        transition: all .2s linear;
+        &:hover {
+            background-color: rgba($electricYellow, .8);
+        }
+    }
+    &__arrow {
+        width: 35px;
+        height: 35px;
+        background-image: url('../../images/left-arrow.svg');
+        background-repeat: no-repeat;
+
+    }
+}
+
+// BACKGROUND COLOR
+.poison-grass {
+    background: linear-gradient(30deg, $purpleCandy 50%, $greenGrass 50%);
+}
+.poison-bug {
+    background: linear-gradient(30deg, $purpleCandy 50%, $greenBug 50%);
+}
+.flying-fire {
+    background: linear-gradient(30deg, $blueButterfly 50%, $pinkParty 50%);
+}
+.flying-bug {
+    background: linear-gradient(30deg, $blueButterfly 50%, $greenBug 50%);
+}
+.flying-normal {
+    background: linear-gradient(30deg, $blueButterfly 50%, $neutralPink 50%);
+}
+
+.bug {
+    background-color: $greenBug;
+    color: $snowWhite;
+}
+.dark {
+    background-color: $blueMidnight;
+    color: $snowWhite;
+}
+.dragon {
+    background-color: $blueDragon;
+}
+.electric {
+    background-color: $electricYellow;
+}
+.fairy {
+    background-color: $pinkFairy;
+}
+.fighting {
+    background-color: $pinkSalmon;
+}
+.fire {
+    background-color: $pinkParty;
+}
+.flying {
+    background-color: $blueButterfly;
+}
+.ghost {
+    background-color: $purpleGhost;
+}
+.grass {
+    background-color: $greenGrass;
+}
+.ground {
+    background-color: $brownTree;
+    color: $snowWhite;
+}
+.ice {
+    background-color: $babyBlue;
+}
+.normal {
+    background-color: $neutralPink;
+}
+.poison {
+    background-color: $purpleCandy;
+    color: $snowWhite;
+}
+.psychic {
+    background-color: $hotPink;
+}
+.rock {
+    background-color: $brownGingerbread;
+    color: $snowWhite;
+}
+.steel {
+    background-color: #5ABE94;
+}
+.water {
+    background-color: #85A8FC;
+}

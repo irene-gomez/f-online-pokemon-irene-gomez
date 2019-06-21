@@ -19,7 +19,7 @@ const Card = props => {
                 <p className="card__name">{pokemon.name}</p>
                 {pokemon.evolution_from !== null ? (
                     <p className="card__evolution">
-                        Evoluciona de:{' '}
+                        Evolves from:{' '}
                         <span className="card__evolution--name">
                             {pokemon.evolution_from}
                         </span>
