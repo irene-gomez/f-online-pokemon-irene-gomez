@@ -11,10 +11,6 @@
     }
     &__info {
         padding-top: 110px;
-        padding-bottom: 130px;
-        @media all and (min-width: $tablet) {
-            padding-bottom: 100px;
-        }
     }
 }
 
@@ -63,12 +59,9 @@
     }
     &__evolution {
         background-color: $snowWhite;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        position: relative;
+        margin: 20px auto 0px;
         padding: 10px 20px;
-        margin-bottom: 30px;
         width: 65%;
         text-align: center;
         font-weight: 600;
